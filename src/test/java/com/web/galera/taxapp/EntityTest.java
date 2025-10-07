@@ -36,7 +36,7 @@ public class EntityTest {
     private static List<TaxAccount> createTestTaxAccounts() {
         List<TaxAccount> accounts = new ArrayList<>();
 
-        accounts.add(new TaxAccount.Builder()
+        accounts.add(TaxAccount.builder()
                 .accountId(1001L)
                 .taxpayerId("TP001")
                 .balance(15000.0)
@@ -45,7 +45,7 @@ public class EntityTest {
                 .taxYear(2024)
                 .build());
 
-        accounts.add(new TaxAccount.Builder()
+        accounts.add(TaxAccount.builder()
                 .accountId(1002L)
                 .taxpayerId("TP002")
                 .balance(25000.0)
@@ -60,7 +60,7 @@ public class EntityTest {
     private static List<TaxDeclaration> createTestTaxDeclarations() {
         List<TaxDeclaration> declarations = new ArrayList<>();
 
-        declarations.add(new TaxDeclaration.Builder()
+        declarations.add(TaxDeclaration.builder()
                 .declarationId("DECL001")
                 .taxpayerId("TP001")
                 .submissionDate(LocalDate.of(2024, 4, 15))
@@ -70,7 +70,7 @@ public class EntityTest {
                 .isApproved(true)
                 .build());
 
-        declarations.add(new TaxDeclaration.Builder()
+        declarations.add(TaxDeclaration.builder()
                 .declarationId("DECL002")
                 .taxpayerId("TP002")
                 .submissionDate(LocalDate.of(2024, 4, 10))
@@ -86,7 +86,7 @@ public class EntityTest {
     private static List<TaxManager> createTestTaxManagers() {
         List<TaxManager> managers = new ArrayList<>();
 
-        managers.add(new TaxManager.Builder()
+        managers.add(TaxManager.builder()
                 .managerId(1)
                 .firstName("Иван")
                 .lastName("Петров")
@@ -96,7 +96,7 @@ public class EntityTest {
                 .isSenior(false)
                 .build());
 
-        managers.add(new TaxManager.Builder()
+        managers.add(TaxManager.builder()
                 .managerId(2)
                 .firstName("Мария")
                 .lastName("Сидорова")
