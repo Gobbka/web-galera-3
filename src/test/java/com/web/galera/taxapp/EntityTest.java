@@ -36,11 +36,7 @@ public class EntityTest {
     private static List<TaxAccount> createTestTaxAccounts() {
         List<TaxAccount> accounts = new ArrayList<>();
 
-<<<<<<< HEAD
         accounts.add(TaxAccount.builder()
-=======
-        accounts.add(new TaxAccount.Builder()
->>>>>>> 94f23ef07c46eddec0b8f9c3ee2c1b60b681f5e2
                 .accountId(1001L)
                 .taxpayerId("TP001")
                 .balance(15000.0)
@@ -49,11 +45,7 @@ public class EntityTest {
                 .taxYear(2024)
                 .build());
 
-<<<<<<< HEAD
         accounts.add(TaxAccount.builder()
-=======
-        accounts.add(new TaxAccount.Builder()
->>>>>>> 94f23ef07c46eddec0b8f9c3ee2c1b60b681f5e2
                 .accountId(1002L)
                 .taxpayerId("TP002")
                 .balance(25000.0)
@@ -68,11 +60,7 @@ public class EntityTest {
     private static List<TaxDeclaration> createTestTaxDeclarations() {
         List<TaxDeclaration> declarations = new ArrayList<>();
 
-<<<<<<< HEAD
         declarations.add(TaxDeclaration.builder()
-=======
-        declarations.add(new TaxDeclaration.Builder()
->>>>>>> 94f23ef07c46eddec0b8f9c3ee2c1b60b681f5e2
                 .declarationId("DECL001")
                 .taxpayerId("TP001")
                 .submissionDate(LocalDate.of(2024, 4, 15))
@@ -82,11 +70,7 @@ public class EntityTest {
                 .isApproved(true)
                 .build());
 
-<<<<<<< HEAD
         declarations.add(TaxDeclaration.builder()
-=======
-        declarations.add(new TaxDeclaration.Builder()
->>>>>>> 94f23ef07c46eddec0b8f9c3ee2c1b60b681f5e2
                 .declarationId("DECL002")
                 .taxpayerId("TP002")
                 .submissionDate(LocalDate.of(2024, 4, 10))
@@ -102,11 +86,7 @@ public class EntityTest {
     private static List<TaxManager> createTestTaxManagers() {
         List<TaxManager> managers = new ArrayList<>();
 
-<<<<<<< HEAD
         managers.add(TaxManager.builder()
-=======
-        managers.add(new TaxManager.Builder()
->>>>>>> 94f23ef07c46eddec0b8f9c3ee2c1b60b681f5e2
                 .managerId(1)
                 .firstName("Иван")
                 .lastName("Петров")
@@ -116,11 +96,7 @@ public class EntityTest {
                 .isSenior(false)
                 .build());
 
-<<<<<<< HEAD
         managers.add(TaxManager.builder()
-=======
-        managers.add(new TaxManager.Builder()
->>>>>>> 94f23ef07c46eddec0b8f9c3ee2c1b60b681f5e2
                 .managerId(2)
                 .firstName("Мария")
                 .lastName("Сидорова")
