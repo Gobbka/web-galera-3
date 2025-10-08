@@ -1,21 +1,21 @@
 package com.web.galera.taxapp.entity;
 
-import lombok.Getter;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
+import lombok.*;
+
 import java.time.LocalDate;
 
 @Getter
 @Builder
 @EqualsAndHashCode
 @ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class TaxDeclaration {
-    private final String declarationId;
-    private final String taxpayerId;
-    private final LocalDate submissionDate;
-    private final Double declaredIncome;
-    private final Double taxAmount;
-    private final String declarationType;
-    private final Boolean isApproved;
+    private String declarationId;
+    private String taxpayerId;
+    private LocalDate submissionDate;
+    private Double declaredIncome;
+    private Double taxAmount;
+    private String declarationType;
+    private Boolean isApproved;
 }
