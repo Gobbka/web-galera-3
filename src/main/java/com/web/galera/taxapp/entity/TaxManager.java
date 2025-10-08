@@ -10,11 +10,11 @@ import lombok.ToString;
 @EqualsAndHashCode
 @ToString
 public class TaxManager {
-    private  Integer managerId;
-    private  String firstName;
-    private  String lastName;
-    private  String department;
-    private  Integer yearsOfExperience;
-    private  Double salary;
-    private  Boolean isSenior;
+    private final Integer managerId;
+    private final String firstName;
+    private final String lastName;
+    private final String department;
+    private final Integer yearsOfExperience;
+    private final Double salary;
+    private final Boolean isSenior;
 }

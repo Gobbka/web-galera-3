@@ -3,7 +3,11 @@ package com.web.galera.taxapp.comparator;
 import com.web.galera.taxapp.entity.TaxAccount;
 import java.util.Comparator;
 
-public class TaxAccountComparators {
+public final class TaxAccountComparators {
+
+    private TaxAccountComparators() {
+        throw new AssertionError("Класс не может быть создан");
+    }
 
     public static Comparator<TaxAccount> byAccountId() {
         return Comparator.comparing(TaxAccount::getAccountId,

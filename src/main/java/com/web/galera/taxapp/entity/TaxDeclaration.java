@@ -11,11 +11,11 @@ import java.time.LocalDate;
 @EqualsAndHashCode
 @ToString
 public class TaxDeclaration {
-    private  String declarationId;
-    private  String taxpayerId;
-    private  LocalDate submissionDate;
-    private  Double declaredIncome;
-    private  Double taxAmount;
-    private  String declarationType;
-    private  Boolean isApproved;
+    private final String declarationId;
+    private final String taxpayerId;
+    private final LocalDate submissionDate;
+    private final Double declaredIncome;
+    private final Double taxAmount;
+    private final String declarationType;
+    private final Boolean isApproved;
 }

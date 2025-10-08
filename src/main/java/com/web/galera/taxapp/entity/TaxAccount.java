@@ -10,10 +10,10 @@ import lombok.ToString;
 @EqualsAndHashCode
 @ToString
 public class TaxAccount {
-    private  Long accountId;
-    private  String taxpayerId;
-    private  Double balance;
-    private  String currency;
-    private  Boolean isActive;
-    private  Integer taxYear;
+    private final Long accountId;
+    private final String taxpayerId;
+    private final Double balance;
+    private final String currency;
+    private final Boolean isActive;
+    private final Integer taxYear;
 }
