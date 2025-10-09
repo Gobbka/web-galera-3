@@ -1,19 +1,18 @@
 package com.web.galera.taxapp.entity;
 
-import lombok.Getter;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
+import lombok.*;
 
 @Getter
 @Builder
 @EqualsAndHashCode
 @ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class TaxAccount {
-    private final Long accountId;
-    private final String taxpayerId;
-    private final Double balance;
-    private final String currency;
-    private final Boolean isActive;
-    private final Integer taxYear;
+    private Long accountId;
+    private String taxpayerId;
+    private Double balance;
+    private String currency;
+    private Boolean isActive;
+    private Integer taxYear;
 }
