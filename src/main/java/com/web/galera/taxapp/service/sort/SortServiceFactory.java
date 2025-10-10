@@ -1,5 +1,9 @@
 package com.web.galera.taxapp.service.sort;
 
+import com.web.galera.taxapp.strategy.BubbleSortStrategy;
+import com.web.galera.taxapp.strategy.MergeSortStrategy;
+import com.web.galera.taxapp.strategy.QuickSortStrategy;
+
 import java.util.Comparator;
 
 public final class SortServiceFactory {

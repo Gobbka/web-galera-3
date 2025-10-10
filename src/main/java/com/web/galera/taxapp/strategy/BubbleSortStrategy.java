@@ -1,5 +1,6 @@
-package com.web.galera.taxapp.service.sort;
+package com.web.galera.taxapp.strategy;
 
+import com.web.galera.taxapp.service.sort.SortStrategy;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Comparator;
