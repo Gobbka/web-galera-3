@@ -1,5 +1,6 @@
 package com.web.galera.taxapp.factory;
 
+import com.web.galera.taxapp.comparator.TaxManagerComparators;
 import com.web.galera.taxapp.datasource.cli.CliTaxManagerDataSource;
 import com.web.galera.taxapp.datasource.random.RandomTaxManagerDataSource;
 import com.web.galera.taxapp.entity.TaxManager;
@@ -7,9 +8,10 @@ import com.web.galera.taxapp.repository.CliRepository;
 import com.web.galera.taxapp.repository.JsonFileRepository;
 import com.web.galera.taxapp.repository.RandomRepository;
 import com.web.galera.taxapp.repository.Repository;
+import com.web.galera.taxapp.ui.Prompter;
 
 import java.io.File;
-import java.util.Scanner;
+import java.util.Comparator;
 
 public class TaxManagerFactory implements EntityFactory<TaxManager> {
 
@@ -21,17 +23,24 @@ public class TaxManagerFactory implements EntityFactory<TaxManager> {
     }
 
     @Override
-    public Repository<TaxManager> getCliRepository(Scanner scanner) {
+    public Repository<TaxManager> getCliRepository(Prompter prompter) {
         return new CliRepository<>(
                 CliTaxManagerDataSource::read,
-                scanner
+                prompter
         );
     }
 
     @Override
-    public Repository<TaxManager> getJsonFileRepository(String filename) {
+    public Repository<TaxManager> getJsonFileRepository() {
         return new JsonFileRepository<>(
-                new File(filename)
+                new File("tax-manager.json")
         );
+    }
+
+    @Override
+    public Comparator<TaxManager> getComparator() {
+        return TaxManagerComparators.byDepartment()
+                .thenComparing(TaxManagerComparators.bySalary())
+                .thenComparing(TaxManagerComparators.byFullName());
     }
 }

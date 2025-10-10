@@ -1,17 +1,15 @@
 package com.web.galera.taxapp.datasource.cli;
 
 import com.web.galera.taxapp.entity.TaxDeclaration;
-import com.web.galera.taxapp.util.CliPrompter;
+import com.web.galera.taxapp.ui.Prompter;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-import java.util.Scanner;
 
 public class CliTaxDeclarationDataSource {
 
-    public static TaxDeclaration read(Scanner scanner) {
-        var prompter = new CliPrompter(scanner);
+    public static TaxDeclaration read(Prompter prompter) {
         var dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
         LocalDate submissionDate = null;

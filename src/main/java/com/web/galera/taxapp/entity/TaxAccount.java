@@ -8,7 +8,7 @@ import lombok.*;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class TaxAccount {
+public class TaxAccount implements Entity {
     private Long accountId;
     private String taxpayerId;
     private Double balance;
