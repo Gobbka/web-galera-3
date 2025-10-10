@@ -1,15 +1,11 @@
 package com.web.galera.taxapp.datasource.cli;
 
 import com.web.galera.taxapp.entity.TaxAccount;
-import com.web.galera.taxapp.util.CliPrompter;
-
-import java.util.Scanner;
+import com.web.galera.taxapp.ui.Prompter;
 
 public class CliTaxAccountDataSource {
 
-    public static TaxAccount read(Scanner scanner) {
-        var prompter = new CliPrompter(scanner);
-
+    public static TaxAccount read(Prompter prompter) {
         return TaxAccount.builder()
                 .accountId(prompter.askLong("Введите номер счета"))
                 .taxpayerId(prompter.askString("Введите id плательщика"))

@@ -1,18 +1,20 @@
-package com.web.galera.taxapp.util;
+package com.web.galera.taxapp.ui;
 
 import lombok.RequiredArgsConstructor;
 import java.util.Scanner;
 
 @RequiredArgsConstructor
-public class CliPrompter {
+public class CliPrompter implements Prompter {
 
     private final Scanner scanner;
 
+    @Override
     public String askString(String prompt) {
         System.out.print(prompt + ": ");
         return scanner.nextLine();
     }
 
+    @Override
     public long askLong(String prompt) {
         while (true) {
             System.out.print(prompt + ": ");
@@ -24,6 +26,7 @@ public class CliPrompter {
         }
     }
 
+    @Override
     public double askDouble(String prompt) {
         while (true) {
             System.out.print(prompt + ": ");
@@ -35,6 +38,7 @@ public class CliPrompter {
         }
     }
 
+    @Override
     public boolean askBoolean(String prompt) {
         while (true) {
             System.out.print(prompt + ": ");
@@ -45,6 +49,7 @@ public class CliPrompter {
         }
     }
 
+    @Override
     public int askInt(String prompt) {
         while (true) {
             System.out.print(prompt + ": ");

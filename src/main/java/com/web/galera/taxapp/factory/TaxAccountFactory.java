@@ -8,6 +8,7 @@ import com.web.galera.taxapp.repository.CliRepository;
 import com.web.galera.taxapp.repository.JsonFileRepository;
 import com.web.galera.taxapp.repository.RandomRepository;
 import com.web.galera.taxapp.repository.Repository;
+import com.web.galera.taxapp.ui.Prompter;
 
 import java.io.File;
 import java.util.Comparator;
@@ -22,17 +23,17 @@ public class TaxAccountFactory implements EntityFactory<TaxAccount> {
     }
 
     @Override
-    public Repository<TaxAccount> getCliRepository(Scanner scanner) {
+    public Repository<TaxAccount> getCliRepository(Prompter prompter) {
         return new CliRepository<>(
                 CliTaxAccountDataSource::read,
-                scanner
+                prompter
         );
     }
 
     @Override
-    public Repository<TaxAccount> getJsonFileRepository(String filename) {
+    public Repository<TaxAccount> getJsonFileRepository() {
         return new JsonFileRepository<>(
-                new File(filename)
+                new File("tax-account.json")
         );
     }
 
