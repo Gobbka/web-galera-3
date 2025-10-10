@@ -1,5 +1,6 @@
 package com.web.galera.taxapp.factory;
 
+import com.web.galera.taxapp.comparator.TaxManagerComparators;
 import com.web.galera.taxapp.datasource.cli.CliTaxManagerDataSource;
 import com.web.galera.taxapp.datasource.random.RandomTaxManagerDataSource;
 import com.web.galera.taxapp.entity.TaxManager;
@@ -9,6 +10,7 @@ import com.web.galera.taxapp.repository.RandomRepository;
 import com.web.galera.taxapp.repository.Repository;
 
 import java.io.File;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class TaxManagerFactory implements EntityFactory<TaxManager> {
@@ -33,5 +35,12 @@ public class TaxManagerFactory implements EntityFactory<TaxManager> {
         return new JsonFileRepository<>(
                 new File(filename)
         );
+    }
+
+    @Override
+    public Comparator<TaxManager> getComparator() {
+        return TaxManagerComparators.byDepartment()
+                .thenComparing(TaxManagerComparators.bySalary())
+                .thenComparing(TaxManagerComparators.byFullName());
     }
 }

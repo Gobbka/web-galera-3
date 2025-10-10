@@ -9,7 +9,7 @@ import lombok.ToString;
 @Builder
 @EqualsAndHashCode
 @ToString
-public class TaxManager {
+public class TaxManager implements Entity {
     private final Integer managerId;
     private final String firstName;
     private final String lastName;

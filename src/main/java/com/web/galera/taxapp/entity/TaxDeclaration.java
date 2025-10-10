@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class TaxDeclaration {
+public class TaxDeclaration implements Entity {
     private String declarationId;
     private String taxpayerId;
     private LocalDate submissionDate;

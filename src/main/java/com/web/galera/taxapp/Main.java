@@ -1,9 +1,16 @@
 package com.web.galera.taxapp;
 
+import com.web.galera.taxapp.entity.Entity;
 import com.web.galera.taxapp.factory.EntityFactory;
 import com.web.galera.taxapp.factory.TaxAccountFactory;
 import com.web.galera.taxapp.factory.TaxDeclarationFactory;
 import com.web.galera.taxapp.factory.TaxManagerFactory;
+import com.web.galera.taxapp.service.SearchService;
+import com.web.galera.taxapp.service.sort.SortService;
+import com.web.galera.taxapp.strategy.BinarySearchStrategy;
+import com.web.galera.taxapp.strategy.BubbleSortStrategy;
+import com.web.galera.taxapp.strategy.MergeSortStrategy;
+import com.web.galera.taxapp.strategy.QuickSortStrategy;
 import com.web.galera.taxapp.util.CliPrompter;
 
 import java.util.HashMap;
@@ -13,7 +20,7 @@ public class Main {
 
     public static void main(String[] args) {
         var scanner = new Scanner(System.in);
-        var entityMap = new HashMap<String, EntityFactory<?>>();
+        var entityMap = new HashMap<String, EntityFactory<? extends Entity>>();
         var prompt = new CliPrompter(scanner);
 
         entityMap.put("tax-account", new TaxAccountFactory());
@@ -33,7 +40,9 @@ public class Main {
                     System.out.println("Модель " + modelCode + " не найдена.");
                     continue;
                 }
-                var model = entityMap.get(modelCode);
+
+                @SuppressWarnings("unchecked")
+                var model = (EntityFactory<Entity>) entityMap.get(modelCode);
 
                 System.out.println("=--- Способы получения данных ---=");
                 System.out.println("1 - Из файла");
@@ -50,14 +59,50 @@ public class Main {
 
                 var size = prompt.askInt("Введите количество элементов");
                 var list = repository.getList(size);
-                System.out.println(list);
+
+                System.out.println("=--- Способы сортировки ---=");
+                System.out.println("1 - Пузырьковая сортировка");
+                System.out.println("2 - Быстрая сортировка");
+                System.out.println("3 - Merge сортировка");
+                var sort = prompt.askString("Выберите способ сортировки");
+
+                var sortService = getEntitySortService(sort, model);
+                var sorted = sortService.sort(list);
+
+                sorted.forEach(System.out::println);
+
+                System.out.println("=--- Поиск элемента ---=");
+                var cliRepository = model.getCliRepository(scanner);
+                var searchList = cliRepository.getList(1);
+                var searchEntity = searchList.getFirst();
+                if(searchEntity == null) {
+                    throw new IllegalStateException();
+                }
+
+                var searchService = new SearchService<>(new BinarySearchStrategy<>(
+                        model.getComparator()
+                ));
+
+                var index = searchService.search(sorted, searchEntity);
+                if(index < 0) {
+                    throw new IllegalStateException("Модель не найдена");
+                }
+                System.out.println(sorted.get(index));
             } catch (Exception ignored) {
 
             }
         }
+    }
 
+    private static SortService<Entity> getEntitySortService(String sort, EntityFactory<Entity> model) {
+        var sortStrategy = switch (sort) {
+            case "1" -> new BubbleSortStrategy<Entity>();
+            case "2" -> new QuickSortStrategy<Entity>();
+            case "3" -> new MergeSortStrategy<Entity>();
+            default -> throw new IllegalStateException("Выбран некорректный способ получения данных: " + sort);
+        };
 
-
+        return new SortService<>(sortStrategy, model.getComparator());
     }
 
 }
