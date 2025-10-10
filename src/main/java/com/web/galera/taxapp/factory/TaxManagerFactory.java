@@ -12,7 +12,6 @@ import com.web.galera.taxapp.ui.Prompter;
 
 import java.io.File;
 import java.util.Comparator;
-import java.util.Scanner;
 
 public class TaxManagerFactory implements EntityFactory<TaxManager> {
 
