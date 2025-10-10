@@ -1,6 +1,7 @@
 package com.web.galera.taxapp.service.sort;
 
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 import java.util.Comparator;
 import java.util.List;
@@ -9,10 +10,11 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 @RequiredArgsConstructor
+@Setter
 public class SortService<T> {
 
-    private final SortStrategy<T> sortStrategy;
-    private final Comparator<T> comparator;
+    private SortStrategy<T> sortStrategy;
+    private Comparator<T> comparator;
     private final ExecutorService executorService;
 
     public SortService(SortStrategy<T> sortStrategy, Comparator<T> comparator) {
