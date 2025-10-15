@@ -1,0 +1,47 @@
+[
+  {
+    "managerId": 1234,
+    "firstName": "Иван",
+    "lastName": "Иванов",
+    "department": "Аудит",
+    "yearsOfExperience": 10,
+    "salary": 120000.00,
+    "isSenior": false
+  },
+  {
+    "managerId": 5678,
+    "firstName": "Анна",
+    "lastName": "Петрова",
+    "department": "Бухгалтерия",
+    "yearsOfExperience": 15,
+    "salary": 180000.50,
+    "isSenior": true
+  },
+  {
+    "managerId": 2345,
+    "firstName": "Пётр",
+    "lastName": "Сидоров",
+    "department": "Налоговый контроль",
+    "yearsOfExperience": 8,
+    "salary": 95000.25,
+    "isSenior": false
+  },
+  {
+    "managerId": 6789,
+    "firstName": "Мария",
+    "lastName": "Кузнецова",
+    "department": "Аналитика",
+    "yearsOfExperience": 12,
+    "salary": 150000.00,
+    "isSenior": true
+  },
+  {
+    "managerId": 3456,
+    "firstName": "Алексей",
+    "lastName": "Смирнов",
+    "department": "Аудит",
+    "yearsOfExperience": 5,
+    "salary": 80000.75,
+    "isSenior": false
+  }
+]

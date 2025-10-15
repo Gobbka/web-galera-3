@@ -1,0 +1,42 @@
+[
+  {
+    "accountId": 123456,
+    "taxpayerId": "a1b2c3d4",
+    "balance": 5000.50,
+    "currency": "USD",
+    "isActive": true,
+    "taxYear": 2024
+  },
+  {
+    "accountId": 654321,
+    "taxpayerId": "e5f6g7h8",
+    "balance": 1500000.00,
+    "currency": "RUB",
+    "isActive": false,
+    "taxYear": 2023
+  },
+  {
+    "accountId": 111222,
+    "taxpayerId": "i9j0k1l2",
+    "balance": 10000.75,
+    "currency": "EUR",
+    "isActive": true,
+    "taxYear": 2025
+  },
+  {
+    "accountId": 333444,
+    "taxpayerId": "m3n4o5p6",
+    "balance": 250000.00,
+    "currency": "USD",
+    "isActive": false,
+    "taxYear": 2022
+  },
+  {
+    "accountId": 555666,
+    "taxpayerId": "q7r8s9t0",
+    "balance": 987654.32,
+    "currency": "RUB",
+    "isActive": true,
+    "taxYear": 2021
+  }
+]
