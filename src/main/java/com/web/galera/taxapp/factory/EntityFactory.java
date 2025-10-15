@@ -2,6 +2,7 @@ package com.web.galera.taxapp.factory;
 
 import com.web.galera.taxapp.repository.Repository;
 import com.web.galera.taxapp.ui.Prompter;
+import com.web.galera.taxapp.validator.EntityValidator;
 
 import java.util.Comparator;
 
@@ -10,4 +11,5 @@ public interface EntityFactory<TEntity> {
     Repository<TEntity> getCliRepository(Prompter prompter);
     Repository<TEntity> getJsonFileRepository();
     Comparator<TEntity> getComparator();
+    EntityValidator<TEntity> getValidator();
 }
