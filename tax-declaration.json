@@ -1,0 +1,47 @@
+[
+  {
+    "declarationId": "abcd1234",
+    "taxpayerId": "xyz98765",
+    "submissionDate": "2024-05-10",
+    "declaredIncome": 1000000.00,
+    "taxAmount": 100000.00,
+    "declarationType": "НДФЛ",
+    "isApproved": true
+  },
+  {
+    "declarationId": "efgh5678",
+    "taxpayerId": "uvw54321",
+    "submissionDate": "2023-12-15",
+    "declaredIncome": 500000.00,
+    "taxAmount": 75000.00,
+    "declarationType": "НДС",
+    "isApproved": false
+  },
+  {
+    "declarationId": "ijkl9012",
+    "taxpayerId": "rst67890",
+    "submissionDate": "2022-07-01",
+    "declaredIncome": 250000.50,
+    "taxAmount": 25000.25,
+    "declarationType": "ЕСН",
+    "isApproved": true
+  },
+  {
+    "declarationId": "mnop3456",
+    "taxpayerId": "opq12345",
+    "submissionDate": "2021-11-30",
+    "declaredIncome": 750000.75,
+    "taxAmount": 50000.00,
+    "declarationType": "Акцизы",
+    "isApproved": false
+  },
+  {
+    "declarationId": "qrst7890",
+    "taxpayerId": "lmn98765",
+    "submissionDate": "2020-03-20",
+    "declaredIncome": 1250000.00,
+    "taxAmount": 150000.00,
+    "declarationType": "НДФЛ",
+    "isApproved": true
+  }
+]
