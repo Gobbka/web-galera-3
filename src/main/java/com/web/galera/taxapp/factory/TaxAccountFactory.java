@@ -9,6 +9,8 @@ import com.web.galera.taxapp.repository.JsonFileRepository;
 import com.web.galera.taxapp.repository.RandomRepository;
 import com.web.galera.taxapp.repository.Repository;
 import com.web.galera.taxapp.ui.Prompter;
+import com.web.galera.taxapp.validator.EntityValidator;
+import com.web.galera.taxapp.validator.TaxAccountValidator;
 
 import java.io.File;
 import java.util.Comparator;
@@ -41,5 +43,10 @@ public class TaxAccountFactory implements EntityFactory<TaxAccount> {
         return TaxAccountComparators.byCurrency()
                 .thenComparing(TaxAccountComparators.byBalance())
                 .thenComparing(TaxAccountComparators.byTaxYear());
+    }
+
+    @Override
+    public EntityValidator<TaxAccount> getValidator() {
+        return new TaxAccountValidator();
     }
 }

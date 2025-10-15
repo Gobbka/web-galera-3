@@ -31,9 +31,17 @@ public class AppController {
                 if (source == null) break;
 
                 var repository = getRepository(factory, source);
+                var validator = factory.getValidator();
 
                 int size = ui.askInt("Введите количество элементов");
-                var list = repository.getList(size);
+                var list = repository.getList(size).stream().filter(entity -> {
+                    var result = validator.validate(entity);
+                    if(!result.isValid()) {
+                        ui.error("Объект " + entity + " пропущен т.к " + result.message());
+                    }
+
+                    return result.isValid();
+                }).toList();
 
                 var sortChoice = getSortMethod();
                 if (sortChoice == null) break;
@@ -95,9 +103,9 @@ public class AppController {
         return ui.choose(
                 "Выберите способ сортировки",
                 Map.of(
-                        new BubbleSortStrategy<Entity>(), "Пузырьковая сортировка",
-                        new QuickSortStrategy<Entity>(), "Быстрая сортировка",
-                        new MergeSortStrategy<Entity>(), "Merge сортировка"
+                        new BubbleSortStrategy<>(), "Пузырьковая сортировка",
+                        new QuickSortStrategy<>(), "Быстрая сортировка",
+                        new MergeSortStrategy<>(), "Merge сортировка"
                 )
         );
     }
