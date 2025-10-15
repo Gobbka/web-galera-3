@@ -1,5 +1,8 @@
 package com.web.galera.taxapp.factory;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.web.galera.taxapp.comparator.TaxAccountComparators;
 import com.web.galera.taxapp.datasource.cli.CliTaxAccountDataSource;
 import com.web.galera.taxapp.datasource.random.RandomTaxAccountDataSource;
@@ -12,6 +15,7 @@ import com.web.galera.taxapp.ui.Prompter;
 
 import java.io.File;
 import java.util.Comparator;
+import java.util.List;
 
 public class TaxAccountFactory implements EntityFactory<TaxAccount> {
     @Override
@@ -32,7 +36,14 @@ public class TaxAccountFactory implements EntityFactory<TaxAccount> {
     @Override
     public Repository<TaxAccount> getJsonFileRepository() {
         return new JsonFileRepository<>(
-                new File("tax-account.json")
+                new File("tax-account.json"),
+                content -> {
+                    try {
+                        return new ObjectMapper().readValue(content, new TypeReference<List<TaxAccount>>() {});
+                    } catch (JsonProcessingException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
         );
     }
 

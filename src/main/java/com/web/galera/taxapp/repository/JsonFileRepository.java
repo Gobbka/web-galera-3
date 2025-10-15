@@ -7,18 +7,19 @@ import lombok.RequiredArgsConstructor;
 import java.io.File;
 import java.nio.file.Files;
 import java.util.List;
+import java.util.function.Function;
 
 @RequiredArgsConstructor
 public class JsonFileRepository<TEntity> implements Repository<TEntity> {
 
     private final File file;
+    private final Function<String, List<TEntity>> mapper;
 
     @Override
     public List<TEntity> getList(int size) {
-        var objectMapper = new ObjectMapper();
         try {
             String content = Files.readString(file.toPath());
-            return objectMapper.readValue(content, new TypeReference<List<TEntity>>() {});
+            return this.mapper.apply(content).stream().limit(size).toList();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
